@@ -15,7 +15,7 @@ find_package(Qt5Gui CONFIG REQUIRED)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 
-#-DCMAKE_TOOLCHAIN_FILE=C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake
+
 
 add_executable(main
 ${CMAKE_CURRENT_SOURCE_DIR}/source/main.cpp
