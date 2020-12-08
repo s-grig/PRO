@@ -30,6 +30,9 @@ target_include_directories(main
 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 include_directories(${Tesseract_INCLUDE_DIRS})
+include_directories(${Leptonica_INCLUDE_DIRS})
+include_directories(${Qt5Gui_INCLUDE_DIRS})
+include_directories(${Qt5Widgets_INCLUDE_DIRS})
 
 #set_target_properties(main PROPERTIES AUTOMOC TRUE)
 
