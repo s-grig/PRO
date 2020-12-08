@@ -35,3 +35,6 @@ target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics sfml-au
 target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
+foreach(path ${CMAKE_PREFIX_PATH})
+  message("Path: " ${path})
+endforeach(path)
