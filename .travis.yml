@@ -81,7 +81,7 @@ script:
   - ls
     
   # - git clone https://github.com/microsoft/vcpkg
-  #- cd vcpkg
+  #  - cd vcpkg
   # - wget https://stasg.ru/tv/vcpkg-export-20201130-003734.zip
   # - unzip vcpkg-export-20201130-003734.zip
 
