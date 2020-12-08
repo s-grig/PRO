@@ -105,31 +105,29 @@ script:
   - cmake -DCMAKE_BUILD_TYPE=release -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=ON -DARCHIVE_INSTALL_DIR=. -G "Unix Makefiles"
   - sudo make && sudo make install
   - cd ..
-  - ls
   - cd ..
   - ls
-  - wget https://github.com/DanBloomberg/leptonica/releases/download/1.80.0/leptonica-1.80.0.tar.gz
-  - tar xzf leptonica-1.80.0.tar.gz
+  #- wget https://github.com/DanBloomberg/leptonica/releases/download/1.80.0/leptonica-1.80.0.tar.gz
+  #- tar xzf leptonica-1.80.0.tar.gz
     # tar xzvf
-  - cd leptonica-1.80.0
+  #- cd leptonica-1.80.0
     #- autoreconf --install --force
-  - ./configure
-  - sudo make install
-  - sudo make check
-  - cd ..
-  - ls
+  #- ./configure
+  #- sudo make install
+  #- sudo make check
+  #- cd ..
+  #- ls
 
-  ##- mkdir -p tesseract_s && cd tesseract_s
-  ##- mkdir -p tesseract_s && cd tesseract_s
-  - git clone https://github.com/tesseract-ocr/tesseract.git
-  - cd tesseract
-  - mkdir build
-  - cd build
-  - cmake ../
-  - make
-  - sudo make install
-  - sudo ldconfig
-  - cd ..
+  
+  #- git clone https://github.com/tesseract-ocr/tesseract.git
+  #- cd tesseract
+  #- mkdir build
+  #- cd build
+  #- cmake ../
+  #- make
+  #- sudo make install
+  #- sudo ldconfig
+  #- cd ..
   ###- ./autogen.sh
   #- export LIBLEPT_HEADERSDIR=/local/include
   #- ./configure --with-extra-libraries=/local/lib
@@ -140,22 +138,21 @@ script:
   ###- sudo make install
   ###- make training
   ###- sudo make training-install
-  - cd ..
+  #- cd ..
   ##- cd ..
-  - ls
-
-  #- export TESSDATA_PREFIX=/home/travis/build/s-grig/projekt/tesseract/
-  #- export TESSDATA_PREFIX=/usr/local/share/    #/usr/local/share/tessdata
-  #- export Tesseract_DIR=/home/travis/build/s-grig/PRO/tesseract
-  #- export TESSDATA_PREFIX="/home/travis/build/s-grig/PRO/tesseract/tessdata" 
+ 
+  - export TESSERACT_VERSION=4.1.0-1
+  - export TESSERACT_INSTALL=$HOME/.tesseract
+  - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
+  - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
+  - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
+  - wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/$TESSERACT_VERSION/tesseract.tar.xz | tar -C $HOME -xJf -
   
   - tesseract --version
-  #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake/"
+  #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake"
   - find / -name  "*onfig.cmake" -print 2>/dev/null
   - find  / -name "TesseractConfig*" -print 2>/dev/null
- 
-   ##- tree
-   ##- tree -P '*esseract*' --prune
+    
    #Вы можете проверить все переменные окружения, используя команду printenv:
    # - printenv
   
@@ -164,8 +161,9 @@ script:
    # cmake -Draspicam_DIR=<dir>
    #  "-DTesseract_DIR=/home/travis/build/s-grig/projekt/tesseract"
    ##  cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
+  - printenv
   - mkdir build && cd build
-  - cmake .. "-DCMAKE_PREFIX_PATH=/usr/local/lib/cmake"
+  - cmake ..
   - cmake --build . --config Release
   
   - echo "Main application testing is done"
