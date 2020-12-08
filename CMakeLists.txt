@@ -7,9 +7,9 @@ set(CMAKE_AUTOMOC ON)
 
 project(PRO)
 
-find_package(SFML REQUIRED COMPONENTS system window graphics audio)
-
 find_package(Leptonica CONFIG REQUIRED)
+
+find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 
 find_package(Tesseract CONFIG REQUIRED)
 
