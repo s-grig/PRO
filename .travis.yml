@@ -5,12 +5,13 @@ os:
 language: cpp
 
 dist: bionic
-
+cache: ccache
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
       - sourceline: "ppa:beineri/opt-qt-5.14.1-bionic"
+      - llvm-toolchain-precise-5.0
     packages:
       - gcc-7
       - g++-7
@@ -18,7 +19,15 @@ addons:
       - qt514svg
       - qt514imageformats
       - qt514tools
-      
+      - cmake
+      - cmake-data
+
+#env:
+   
+    #- TARGET_CPU=amd64 BUILD_CONFIGURATION=Debug
+    #- TARGET_CPU=amd64 BUILD_CONFIGURATION=Release
+    #- TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
+    #- TARGET_CPU=x86 BUILD_CONFIGURATION=Release      
   
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
@@ -35,46 +44,122 @@ script:
     fi
   - cmake --version
   - qmake --version
+    
+  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev -y
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+# #- pkg-config --cflags --libs tesseract
+  - sudo apt install qt5-default
+  - sudo apt-get install libgtk2.0-dev -y
+  - sudo apt-get install tree
+   
+   #- sudo apt-get install autoconf automake libtool
+  - sudo apt-get install pkg-config
+   - sudo apt-get install libpng-dev
+   - sudo apt-get install libjpeg8-dev
+   - sudo apt-get install libtiff5-dev
+   - sudo apt-get install zlib1g-dev
+   - sudo apt-get install libtool-bin
+   #################### SFML #####################
+  - sudo apt-get install libx11-dev libgl1-mesa-dev libudev-dev libfreetype6-dev libopenal-dev libflac-dev libvorbis-dev
+   - sudo aptitude install x11-xserver-utils -y
+   - sudo apt install libavcodec-dev libavformat-dev libswscale-dev -y
+   - sudo apt-get install xorg-dev -y
+##################################################
 
-  # Check versions of gcc, g++ and cmake
-  - gcc -v && g++ -v && cmake --version
-  # Run your build commands next
+script:
+  - 
+  #- export TESSERACT_VERSION=4.0.0-1
+  #- export TESSERACT_INSTALL=$HOME/.tesseract
+  #- export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
+  #- export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
+  #- export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
+  #- wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/$TESSERACT_VERSION/tesseract.tar.xz | tar -C $HOME -xJf -
+  - ls
+    
+ # - git clone https://github.com/microsoft/vcpkg
+ #- cd vcpkg
+ # - wget https://stasg.ru/tv/vcpkg-export-20201130-003734.zip
+ # - unzip vcpkg-export-20201130-003734.zip
 
-  #- sudo apt-get install tree
-  - sudo apt-get install p7zip-rar p7zip-full
-  - sudo apt-get install build-essential tar curl zip unzip
-  ############# SFML ############ 
-  - sudo apt-get install libx11-dev
-  - sudo apt-get install xorg-dev
-  - sudo apt-get install freeglut3-dev
-  - sudo apt-get install libudev-dev
-  - sudo apt-get install libxrandr-dev
-  #- sudo apt-get install libxi-dev
-  - sudo apt-get install libgl1-mesa-dev
-  #- sudo apt-get install libudev-dev
+ # - ./vcpkg/bootstrap-vcpkg.sh
+ # - cd vcpkg 
+ # - ./vcpkg list
+ # - ./vcpkg install sfml tesseract 
+ # - ./vcpkg install qt5-imageformats
+ # - ./vcpkg list
+#  - cd ..
 
+  #- cd home/travis/build/s-grig/projekt
+  - mkdir sfml
+  - cd sfml
+  - wget https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip
+  - unzip SFML-2.5.1-sources.zip
+  - cd SFML-2.5.1
+  - cmake -DCMAKE_BUILD_TYPE=release -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=ON -DARCHIVE_INSTALL_DIR=. -G "Unix Makefiles"
+  - sudo make && sudo make install
+  - cd ..
+  - ls
+  - cd ..
+  - ls
+  - wget https://github.com/DanBloomberg/leptonica/releases/download/1.80.0/leptonica-1.80.0.tar.gz
+  - tar xzf leptonica-1.80.0.tar.gz
+ # tar xzvf
+  - cd leptonica-1.80.0
+  #- autoreconf --install --force
+  - ./configure
+  - sudo make install
+  - sudo make check
+  - cd ..
+  - ls
 
-  ############### Qt5 ##############
-  - sudo apt-get install libmesa-dev  
-  - sudo apt-get install libxi-dev
-  - sudo apt-get install libxext-dev
-  #- sudo apt-get install libx11-dev ## sfml
+  ##- mkdir -p tesseract_s && cd tesseract_s
+  ##- mkdir -p tesseract_s && cd tesseract_s
+  - git clone https://github.com/tesseract-ocr/tesseract.git
+  - cd tesseract
+  - mkdir build
+  - cd build
+  - cmake ../
+  - make
+  - sudo make install
+  - sudo ldconfig
+  - cd ..
+  ###- ./autogen.sh
+  #- export LIBLEPT_HEADERSDIR=/local/include
+  #- ./configure --with-extra-libraries=/local/lib
+  #- LIBLEPT_HEADERSDIR=/usr/local/include ./configure --prefix=/usr/local/ --with-extra-libraries=/usr/local/lib
+  #- make install
+  ###- autoreconf --install --force
+  ###- ./configure
+  ###- sudo make install
+  ###- make training
+  ###- sudo make training-install
+  - cd ..
+  ##- cd ..
+  - ls
 
-  - sudo apt install fontconfig
   
-  - git clone https://github.com/microsoft/vcpkg
-  - ./vcpkg/bootstrap-vcpkg.sh
-  - ./vcpkg/vcpkg update
-  - ./vcpkg/vcpkg install sfml
-  - ./vcpkg/vcpkg install qt5-imageformats
-  - ./vcpkg/vcpkg install tesseract
-  #- ./vcpkg/vcpkg install libudev libx11 libxrandr opengl
+  #- export TESSDATA_PREFIX=/home/travis/build/s-grig/projekt/tesseract/
+  #- export TESSDATA_PREFIX=/usr/local/share/    #/usr/local/share/tessdata
+  #- export Tesseract_DIR=/home/travis/build/s-grig/projekt/
+  - export TESSDATA_PREFIX="/home/travis/build/s-grig/projekt/tesseract/tessdata" 
   
-  
-  
+  - tesseract --version
+  #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/projekt/tesseract/cmake/"
+  - find / -name  "*onfig.cmake" -print 2>/dev/null
+  - find  / -name "TesseractConfig*" -print 2>/dev/null
+  - find  / -name "tesseract-config*" -print 2>/dev/null
+  ##- tree
+  ##- tree -P '*esseract*' --prune
   - mkdir build && cd build
-  - cmake .. "-DCMAKE_TOOLCHAIN_FILE=/home/travis/build/s-grig/PRO/vcpkg/scripts/buildsystems/vcpkg.cmake"
+  #- cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/projekt/tesseract/cmake/templates/"
+  # "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/projekt/tesseract/"
+  #cmake -Draspicam_DIR=<dir>
+  #  "-DTesseract_DIR=/home/travis/build/s-grig/projekt/tesseract"
+  
+  - cmake ..
   - cmake --build . --config Release
   - echo "Main application testing is done"
-  #  -DCMAKE_PREFIX_PATH=/usr/local/share/
- 
+ #  -DCMAKE_PREFIX_PATH=/usr/local/share/
+ # cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
