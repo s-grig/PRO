@@ -147,11 +147,11 @@ script:
   
   #- export TESSDATA_PREFIX=/home/travis/build/s-grig/projekt/tesseract/
   #- export TESSDATA_PREFIX=/usr/local/share/    #/usr/local/share/tessdata
-  #- export Tesseract_DIR=/home/travis/build/s-grig/projekt/
-  - export TESSDATA_PREFIX="/home/travis/build/s-grig/PRO/tesseract" 
+  - export Tesseract_DIR=/home/travis/build/s-grig/PRO/tesseract
+  - export TESSDATA_PREFIX="/home/travis/build/s-grig/PRO/tesseract/tessdata" 
   
   - tesseract --version
-  #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/projekt/tesseract/cmake/"
+  #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake/"
   - find / -name  "*onfig.cmake" -print 2>/dev/null
   - find  / -name "TesseractConfig*" -print 2>/dev/null
   - find  / -name "tesseract-config*" -print 2>/dev/null
@@ -160,8 +160,8 @@ script:
   #Вы можете проверить все переменные окружения, используя команду printenv:
   - printenv
   - mkdir build && cd build
-  #- cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/projekt/tesseract/cmake/templates/"
-  # "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/projekt/tesseract/"
+  #- cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake/templates/"
+  # "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/"
   #cmake -Draspicam_DIR=<dir>
   #  "-DTesseract_DIR=/home/travis/build/s-grig/projekt/tesseract"
   
