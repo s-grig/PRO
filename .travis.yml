@@ -144,7 +144,6 @@ script:
   ##- cd ..
   - ls
 
-  
   #- export TESSDATA_PREFIX=/home/travis/build/s-grig/projekt/tesseract/
   #- export TESSDATA_PREFIX=/usr/local/share/    #/usr/local/share/tessdata
   - export Tesseract_DIR=/home/travis/build/s-grig/PRO/tesseract
@@ -155,18 +154,17 @@ script:
   - find / -name  "*onfig.cmake" -print 2>/dev/null
   - find  / -name "TesseractConfig*" -print 2>/dev/null
  
-  ##- tree
-  ##- tree -P '*esseract*' --prune
-  #Вы можете проверить все переменные окружения, используя команду printenv:
-  - printenv
+   ##- tree
+   ##- tree -P '*esseract*' --prune
+   #Вы можете проверить все переменные окружения, используя команду printenv:
+   # - printenv
   - mkdir build && cd build
-  #- cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake/templates/"
-  # "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/"
-  #cmake -Draspicam_DIR=<dir>
-  #  "-DTesseract_DIR=/home/travis/build/s-grig/projekt/tesseract"
-  
+   #- cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake/templates/"
+   # "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/"
+   # cmake -Draspicam_DIR=<dir>
+   #  "-DTesseract_DIR=/home/travis/build/s-grig/projekt/tesseract"
+   ##  cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
   - cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/build/cmake;/home/travis/build/s-grig/PRO/leptonica-1.80.0/cmake/templates;/usr/local/lib/cmake"
   - cmake --build . --config Release
+
   - echo "Main application testing is done"
- #  -DCMAKE_PREFIX_PATH=/usr/local/share/
- # cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
