@@ -19,8 +19,7 @@ addons:
       - qt514svg
       - qt514imageformats
       - qt514tools
-      - cmake
-      - cmake-data
+     
 #env:
    
     #- TARGET_CPU=amd64 BUILD_CONFIGURATION=Debug
