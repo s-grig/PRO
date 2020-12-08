@@ -7,7 +7,7 @@ set(CMAKE_AUTOMOC ON)
 
 project(PRO)
 
-find_package(SFML REQUIRED COMPONENTS system window graphics)
+find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 
 find_package(Tesseract CONFIG REQUIRED)
 
@@ -30,7 +30,7 @@ PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_link_libraries(main PRIVATE libtesseract)
 
-target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
+target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics sfml-audio)
 
 target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
