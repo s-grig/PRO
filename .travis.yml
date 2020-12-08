@@ -151,6 +151,7 @@ script:
   - find  / -name "TesseractConfig*" -print 2>/dev/null
   - ls /usr/local/lib/liblept*
   - ls /usr/local/lib/libtesseract*
+  - pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
    # - printenv
   
