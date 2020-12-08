@@ -5,13 +5,13 @@ os:
 language: cpp
 
 dist: bionic
-cache: ccache
+
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
       - sourceline: "ppa:beineri/opt-qt-5.14.1-bionic"
-      - llvm-toolchain-precise-5.0
+      
     packages:
       - gcc-7
       - g++-7
