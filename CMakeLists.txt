@@ -29,6 +29,8 @@ ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
 target_include_directories(main
 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
+include_directories(${Tesseract_INCLUDE_DIRS})
+
 #set_target_properties(main PROPERTIES AUTOMOC TRUE)
 
 
