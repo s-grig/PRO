@@ -1,5 +1,51 @@
-#include <drawer.hpp>
+п»ї#include <drawer.hpp>
 
+void drawer::set_limits_lin() {
+    auto temp = std::max_element(coordinates.begin(), coordinates.end(),
+        [](const auto& a, const auto& b) {
+            return a.first < b.first;
+        });
+    double max_x = std::ceil((*temp).first * 1000) / 1000;
+    max_x += 0.05 * max_x;
+
+    temp = std::min_element(coordinates.begin(), coordinates.end(),
+        [](const auto& a, const auto& b) {
+            return a.first < b.first;
+        });
+    double min_x = std::floor((*temp).first * 1000) / 1000;
+    min_x += 0.05 * min_x;
+
+    temp = std::max_element(coordinates.begin(), coordinates.end(),
+        [](const auto& a, const auto& b) {
+            return a.second < b.second;
+        });
+    double max_y = std::ceil((*temp).second * 1000) / 1000;
+    max_y += 0.05 * max_y;
+
+    temp = std::min_element(coordinates.begin(), coordinates.end(),
+        [](const auto& a, const auto& b) {
+            return a.second < b.second;
+        });
+    double min_y = std::floor((*temp).second * 1000) / 1000;
+    min_y += 0.05 * min_y;
+
+    if (abs(max_x) > abs(min_x)) {
+        limit_x0 = -max_x;
+        limit_x1 = max_x;
+    }
+    else {
+        limit_x0 = min_x;
+        limit_x1 = -min_x;
+    }
+    if (abs(max_y) > abs(min_y)) {
+        limit_y0 = -max_y;
+        limit_y1 = max_y;
+    }
+    else {
+        limit_y0 = min_y;
+        limit_y1 = -min_y;
+    }
+}
 
 void drawer::cicle(const std::vector<double>& x_vec_, const std::vector<double>& y_vec_) {
     x_vec = x_vec_;
@@ -61,52 +107,7 @@ void drawer::set_count_marker_log() {
     count_marker_x = 8;
 }
 
-void drawer::set_limits_lin() {
-    auto temp = std::max_element(coordinates.begin(), coordinates.end(),
-        [](const auto& a, const auto& b) {
-            return a.first < b.first;
-        });
-    double max_x = std::ceil((*temp).first * 1000) / 1000 ;
-    max_x += 0.05 * max_x;
 
-    temp = std::min_element(coordinates.begin(), coordinates.end(),
-        [](const auto& a, const auto& b) {
-            return a.first < b.first;
-        });
-    double min_x = std::floor((*temp).first * 1000) / 1000;
-    min_x += 0.05 * min_x;
-
-    temp = std::max_element(coordinates.begin(), coordinates.end(),
-        [](const auto& a, const auto& b) {
-            return a.second < b.second;
-        });
-    double max_y = std::ceil((*temp).second * 1000) / 1000;
-    max_y += 0.05 * max_y;
-
-    temp = std::min_element(coordinates.begin(), coordinates.end(),
-        [](const auto& a, const auto& b) {
-            return a.second < b.second;
-        });
-    double min_y = std::floor((*temp).second * 1000) / 1000;
-    min_y += 0.05 * min_y;
-
-    if (abs(max_x) > abs(min_x)) {
-        limit_x0 = -max_x;
-        limit_x1 = max_x;
-    }
-    else {
-        limit_x0 = min_x;
-        limit_x1 = -min_x;
-    }
-    if (abs(max_y) > abs(min_y)) {
-        limit_y0 = -max_y;
-        limit_y1 = max_y;
-    }
-    else {
-        limit_y0 = min_y;
-        limit_y1 = -min_y;
-    }
-}
 
 void drawer::set_limits_log() {
     limit_x1 = limit_y1 = 1000;
@@ -115,14 +116,14 @@ void drawer::set_limits_log() {
 
 void drawer::draw_plate(sf::RenderWindow& window) {
     window.clear(sf::Color(255, 255, 255, 0));
-    //Оси
+    //пїЅпїЅпїЅ
     sf::RectangleShape line;
     line.setFillColor(sf::Color(0, 0, 0));
-    //Вертикаль Y
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y
     line.setPosition(0, new_center_y);
     line.setSize(sf::Vector2f(x_size, 4));
     window.draw(line);
-    //Горизонталь X
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ X
     line.setPosition(new_center_x, 0);
     line.setSize(sf::Vector2f(4, y_size));
     window.draw(line);
@@ -139,7 +140,7 @@ void drawer::draw_plate(sf::RenderWindow& window) {
 
     double len_axis_y = y_size;
     for (int u = 0; u <= count_marker_y; u++) {
-        //Текст
+        //пїЅпїЅпїЅпїЅпїЅ
         if (linear == true) {
             text.setString(std::to_string(limit_y1 - u * step_y_lin));
         }
@@ -156,16 +157,16 @@ void drawer::draw_plate(sf::RenderWindow& window) {
         window.draw(text);
 
         line.setFillColor(sf::Color(0, 0, 0));
-        //Горизонтальные
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         line.setPosition(0, len_axis_y / count_marker_y * u);
         line.setSize(sf::Vector2f(x_size, 1));
         window.draw(line);
     }
 
-    //Разметка горизонтальной оси
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
     double len_axis_x = x_size;
     for (int u = 0; u <= count_marker_x; u++) {
-        //Текст
+        //пїЅпїЅпїЅпїЅпїЅ
         if (linear == true) {
             text.setString(std::to_string(limit_x0 + u * step_x_lin));
         }
@@ -180,8 +181,8 @@ void drawer::draw_plate(sf::RenderWindow& window) {
         //text.setString(std::to_string(limit_x0 + u * step_x_lin));
         text.setPosition(len_axis_x / count_marker_x * u, new_center_y + 15);
         window.draw(text);
-        //Вспомогательные линии сетки
-        //вертикальные
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         line.setPosition(len_axis_x / count_marker_x * u, 0);
         line.setSize(sf::Vector2f(1, y_size));
         window.draw(line);
@@ -240,7 +241,7 @@ void drawer::draw_curve(sf::RenderWindow& window) {
     }
 }
 
-//Точки в линейном и логарифмическом маштабе
+//пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 double drawer::calculate_point_x_lin(const std::vector<std::pair<double, double>>& coordinates, const int& i) {
     return (coordinates[i].first - limit_x0) * scaling_factor_x;
 }
