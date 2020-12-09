@@ -45,7 +45,6 @@ include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
 
 #set_target_properties(main PROPERTIES AUTOMOC TRUE)
 
-
 target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
