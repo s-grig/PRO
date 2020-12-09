@@ -19,7 +19,7 @@ addons:
       - qt514svg
       - qt514imageformats
       - qt514tools
-      - tesseract-ocr
+      #- tesseract-ocr
      
 #env:
    
@@ -75,8 +75,11 @@ script:
   - sudo apt install libavcodec-dev libavformat-dev libswscale-dev -y
   - sudo apt-get install xorg-dev -y
 ##################################################
+######## leptonica ###############################
+  - sudo apt-get install libleptonica-dev
+  - sudo apt-get install xzgv
   #- sudo apt install tesseract-ocr
-  - tesseract --version
+ 
  
   - ls
     
@@ -94,6 +97,7 @@ script:
   #  - cd ..
 
   #- cd home/travis/build/s-grig/projekt
+  ################################### SFML #################################################
   - mkdir sfml
   - cd sfml
   - wget https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip
@@ -104,13 +108,20 @@ script:
   - cd ..
   - cd ..
   - ls
-  #- wget https://github.com/DanBloomberg/leptonica/releases/download/1.80.0/leptonica-1.80.0.tar.gz
-  #- tar xzf leptonica-1.80.0.tar.gz
+  ################################### leptonica #################################################
+  - wget https://github.com/DanBloomberg/leptonica/releases/download/1.80.0/leptonica-1.80.0.tar.gz
+  - tar xzf leptonica-1.80.0.tar.gz
     # tar xzvf
-  #- cd leptonica-1.80.0
-    #- autoreconf --install --force
-  #- ./configure
-  #- sudo make install
+  - cd leptonica-1.80.0
+  - autoreconf --install --force
+  - ./autobuild
+  - ./configure
+  - ./make-for-local
+  - ./make-for auto
+  - sudo make
+  - sudo make install
+  - LD_LIBRARY_PATH = LD_LIBRARY_PATH:usr/local/lib
+  - sudo ldconfig
   #- sudo make check
   #- cd ..
   #- ls
