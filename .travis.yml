@@ -76,8 +76,12 @@ script:
   - sudo apt-get install xorg-dev -y
 ##################################################
 ######## leptonica ###############################
-  - sudo apt-get install libleptonica-dev
+  #- sudo apt-get install libleptonica-dev
   - sudo apt-get install xzgv
+
+
+
+
   #- sudo apt install tesseract-ocr
  
  
