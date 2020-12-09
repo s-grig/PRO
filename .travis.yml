@@ -117,7 +117,7 @@ script:
   - ./autobuild
   - ./configure
   - ./make-for-local
-  - ./make-for auto
+  - ./make-for-auto
   - sudo make
   - sudo make install
   - LD_LIBRARY_PATH = LD_LIBRARY_PATH:usr/local/lib
