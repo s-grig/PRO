@@ -147,8 +147,7 @@ script:
   - sudo make training
   - sudo make training-install
   - cd ..
-  - echo $LD_LIBRARY_PATH
-  - echo $LDFLAGS
+  
   ###- ./autogen.sh
   #- export LIBLEPT_HEADERSDIR=/local/include
   #- ./configure --with-extra-libraries=/local/lib
@@ -185,7 +184,9 @@ script:
    # cmake -Draspicam_DIR=<dir>
    #  "-DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract"
    ##  cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
-  
+  - echo $LD_LIBRARY_PATH
+  - echo $LDFLAGS
+
   - mkdir build && cd build
   - cmake .. "-DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract"
   - cmake --build . --config Release
