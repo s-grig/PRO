@@ -186,6 +186,8 @@ script:
    ##  cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
   - echo $LD_LIBRARY_PATH
   - echo $LDFLAGS
+  - echo $CFLAGS
+  - echo $LIBLEPT_HEADERSDIR
 
   - mkdir build && cd build
   - cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
