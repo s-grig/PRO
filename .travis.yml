@@ -19,7 +19,7 @@ addons:
       - qt514svg
       - qt514imageformats
       - qt514tools
-      - tesseract-ocr-dev
+      - tesseract-ocr
      
 #env:
    
@@ -160,7 +160,7 @@ script:
    # cmake -Draspicam_DIR=<dir>
    #  "-DTesseract_DIR=/home/travis/build/s-grig/projekt/tesseract"
    ##  cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
-  - printenv
+  
   - mkdir build && cd build
   - cmake ..
   - cmake --build . --config Release
