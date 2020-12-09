@@ -55,7 +55,7 @@ target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 
-#target_link_libraries(main PRIVATE llept PRIVATE libtesseract PRIVATE )
+##target_link_libraries(main PRIVATE llept PRIVATE libtesseract PRIVATE )
 
 
 
