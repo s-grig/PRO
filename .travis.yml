@@ -114,7 +114,7 @@ script:
     # tar xzvf
   - cd leptonica-1.80.0
   - autoreconf --install --force
-  - ./autobuild
+  #- ./autobuild
   - ./configure
   - ./make-for-local
   - ./make-for-auto
