@@ -188,7 +188,7 @@ script:
   - echo $LDFLAGS
 
   - mkdir build && cd build
-  - cmake .. "-DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract"
+  - cmake .. "-DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract;/usr/local/lib/cmake"
   - cmake --build . --config Release
   
   - echo "Main application testing is done"
