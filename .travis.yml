@@ -193,7 +193,7 @@ script:
   - echo LIBLEPT_HEADERSDIR
   #- cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
   - mkdir build && cd build
-  - cmake -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
+  - cmake .. 
   - cmake --build . --config Release
   
   - echo "Main application testing is done"
