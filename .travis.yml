@@ -151,6 +151,7 @@ script:
   - find  / -name "libtesseract*" -print 2>/dev/null
   - ls /usr/local/share/leptonica/llept*
   - ls /usr/local/share/tesseract/libtesseract*
+  - -I/usr/local/include/tesseract -ltesseract
   #- pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
    # - printenv
