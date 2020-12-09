@@ -19,7 +19,7 @@ addons:
       - qt514svg
       - qt514imageformats
       - qt514tools
-      - tesseract-ocr
+      - tesseract-ocr-dev
      
 #env:
    
