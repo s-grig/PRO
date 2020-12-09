@@ -20,6 +20,7 @@ find_library(Tesseract libtesseract
     PATHS
     /usr/lib
     /usr/local/lib
+    / usr / bin / tesseract
     /usr/share/tesseract-ocr/4.00)
 
 
