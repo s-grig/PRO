@@ -42,7 +42,7 @@ include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
 
 target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
-target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
+target_link_libraries(main PRIVATE libtesseract)
 
 target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics sfml-audio)
 
@@ -53,7 +53,3 @@ target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 ##target_link_libraries(main PRIVATE llept PRIVATE libtesseract PRIVATE )
 
 
-
-foreach(path ${CMAKE_PREFIX_PATH})
-  message("Path: " ${path})
-endforeach(path)
