@@ -149,9 +149,9 @@ script:
   #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake"
   - find / -name  "*onfig.cmake" -print 2>/dev/null
   - find  / -name "TesseractConfig*" -print 2>/dev/null
-  - ls /usr/local/lib/liblept*
-  - ls /usr/local/lib/libtesseract*
-  - pkg-config --cflags --libs tesseract
+  - ls /usr/local/lib/llept*
+  - ls /usr/local/lib/ltesseract*
+  #- pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
    # - printenv
   
