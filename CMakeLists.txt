@@ -22,6 +22,7 @@ find_library(Tesseract libtesseract
     /usr/local/lib
     /usr/bin/tesseract
     /usr/lib/x86_64-linux-gnu
+    /usr/lib/x86_64-linux-gnu/
     /usr/share/tesseract-ocr/4.00)
 
 
