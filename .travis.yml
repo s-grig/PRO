@@ -136,19 +136,18 @@ script:
   #- cd tesseract
   - cd tesseract/
   - ./autogen.sh
-  - export LIBLEPT_HEADERSDIR=/usr/local/include 
-  - ./configure --with-extra-libraries=/usr/local/lib
-
- #- ./configure --enable-debug
- # - LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make
+  - ./configure --enable-debug
+  - LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make
+  #- export LIBLEPT_HEADERSDIR=/usr/local/include 
+  #- ./configure --with-extra-libraries=/usr/local/lib
   #- mkdir build
   #- cd build
   #- cmake ../
   #- make
   - sudo make install
   - sudo ldconfig
-  - sudo make training
-  - sudo make training-install
+  #- sudo make training
+  #- sudo make training-install
   - cd ..
   
   ###- ./autogen.sh
