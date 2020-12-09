@@ -164,7 +164,7 @@ script:
   
   - tesseract --version
   #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake"
-  #- find / -name  "*onfig.cmake" -print 2>/dev/null
+  - find / -name  "*onfig.cmake" -print 2>/dev/null
   #- find  / -name "libtesseract*" -print 2>/dev/null
   #- ls /usr/local/share/leptonica/llept*
   #- ls /usr/local/share/tesseract/libtesseract*
