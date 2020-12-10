@@ -48,7 +48,7 @@ include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
 
 target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
-target_link_libraries(main PRIVATE libtesseract)
+#target_link_libraries(main PRIVATE libtesseract)
 
 target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics sfml-audio)
 
