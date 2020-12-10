@@ -76,7 +76,7 @@ script:
   - sudo apt-get install xorg-dev -y
 ##################################################
 ######## leptonica ###############################
-  #- sudo apt-get install libleptonica-dev
+  - sudo apt-get install libleptonica-dev
   - sudo apt-get install xzgv
 
 
@@ -172,12 +172,12 @@ script:
   
   - tesseract --version
   #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake"
-  - find / -name  "*onfig.cmake" -print 2>/dev/null
-  - find  / -name "TesseractConfig.cmake" -print 2>/dev/null
+  - sudo find / -name  "*onfig.cmake" -print 2>/dev/null
+  - sudo find  / -name "TesseractConfig.cmake" -print 2>/dev/null
   #- ls /usr/local/share/leptonica/llept*
   #- ls /usr/local/share/tesseract/libtesseract*
   #- -I/usr/local/include/tesseract -ltesseract
-  #- pkg-config --cflags --libs tesseract
+  - pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
    # - printenv
   
@@ -188,8 +188,8 @@ script:
    ##  cmake -DTesseract_DIR=/home/travis/build/s-grig/projekt/leptonica-1.80.0/tesseract_s/tesseract/cmake/templates
   - echo $LD_LIBRARY_PATH
   - echo $LDFLAGS
-  - echo CFLAGS
-  - echo LIBLEPT_HEADERSDIR
+  - echo $CFLAGS
+  - echo $LIBLEPT_HEADERSDIR
   #- cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
   - mkdir build && cd build
   - cmake .. 
