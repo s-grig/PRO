@@ -181,7 +181,7 @@ script:
   - sudo find  / -name "TesseractConfig.cmake" -print 2>/dev/null
   - sudo find  / -name "tesseract*" -print 2>/dev/null
   #- ls /usr/local/share/leptonica/lept*
-  - ls /usr/local/share/tesseract/libtesseract*
+  - ls /usr/local/share/tesseract
   #- -I/usr/local/include/tesseract -ltesseract
   - pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
