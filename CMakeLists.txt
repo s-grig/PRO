@@ -17,6 +17,14 @@ find_package(Qt5Widgets CONFIG REQUIRED)
 
 #find_package(Tesseract CONFIG REQUIRED)
 
+find_library(Tesseract libtesseract
+    PATHS
+    /usr/lib
+    /usr/local/lib
+    /usr/bin/tesseract
+    /usr/lib/x86_64-linux-gnu
+    /usr/lib/x86_64-linux-gnu/
+    /usr/share/tesseract)
 
 
 add_executable(main
