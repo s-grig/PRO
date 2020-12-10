@@ -174,8 +174,8 @@ script:
   #  "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake"
   - sudo find / -name  "*onfig.cmake" -print 2>/dev/null
   - sudo find  / -name "TesseractConfig.cmake" -print 2>/dev/null
-  - sudo find  / -name "tesseract.*" -print 2>/dev/null
-  #- ls /usr/local/share/leptonica/llept*
+  - sudo find  / -name "tesseract*" -print 2>/dev/null
+  #- ls /usr/local/share/leptonica/lept*
   #- ls /usr/local/share/tesseract/libtesseract*
   #- -I/usr/local/include/tesseract -ltesseract
   - pkg-config --cflags --libs tesseract
