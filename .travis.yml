@@ -189,10 +189,10 @@ script:
   - echo $LDFLAGS
   - echo $CFLAGS
   - echo $LIBLEPT_HEADERSDIR
-
+  #         -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake
    #- cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
   - mkdir build && cd build
   - export Tesseract_DIR=/home/travis/build/s-grig/PRO/tesseract
-  - cmake .. -DCMAKE_PREFIX_PATH=/usr/local/lib
+  - cmake .. 
   - cmake --build . --config Release
   - echo "Main application testing is done"
