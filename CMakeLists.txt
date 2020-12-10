@@ -26,6 +26,7 @@ find_library(Tesseract libtesseract
     /usr/lib/x86_64-linux-gnu/
     /usr/bin/install
     /usr/local/Cellar/tesseract/lib
+    /usr/local/include/leptonica
     /usr/share/tesseract)
 
 
@@ -57,6 +58,6 @@ target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 
-##target_link_libraries(main PRIVATE llept PRIVATE libtesseract PRIVATE )
+target_link_libraries(main PRIVATE lept PRIVATE libtesseract PRIVATE)
 
 
