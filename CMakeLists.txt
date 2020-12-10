@@ -27,6 +27,7 @@ find_library(Tesseract libtesseract
     /usr/bin/install
     /usr/local/Cellar/tesseract/lib
     /usr/local/include/leptonica
+    $HOME/build/s-grig/PRO/tesseract/.tesseract
     /usr/share/tesseract)
 
 
