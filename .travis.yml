@@ -179,7 +179,7 @@ script:
   - pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
    # - printenv
-  
+  - pkg-config --cflags --libs tesseract
    #- cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake/templates/"
    # "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/"
    # cmake -Draspicam_DIR=<dir>
@@ -189,8 +189,10 @@ script:
   - echo $LDFLAGS
   - echo $CFLAGS
   - echo $LIBLEPT_HEADERSDIR
+
    #- cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
   - mkdir build && cd build
+  - export Tesseract_DIR=/home/travis/build/s-grig/PRO/tesseract
   - cmake .. 
   - cmake --build . --config Release
   
