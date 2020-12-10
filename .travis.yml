@@ -135,26 +135,26 @@ script:
   - ls
   - echo $LD_LIBRARY_PATH
  ################################### tesseract #################################################
-  - sudo apt-get install tesseract-ocr
-  - sudo apt install libtesseract-dev
-  ###- git clone https://github.com/tesseract-ocr/tesseract.git
+  #- sudo apt-get install tesseract-ocr
+  #- sudo apt install libtesseract-dev
+  - git clone https://github.com/tesseract-ocr/tesseract.git
   
   ##- cd tesseract/
   ##- ./autogen.sh
   ##- ./configure --with-extra-libraries=/usr/local/lib
-  #- cd tesseract
+  - cd tesseract
   #- LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make
   #- export LIBLEPT_HEADERSDIR=/usr/local/include 
   #- ./configure --with-extra-libraries=/usr/local/lib
-  #- mkdir build
-  #- cd build
-  #- cmake ../
-  #- make
-  ##- sudo make install
-  ##- sudo ldconfig
+  - mkdir build
+  - cd build
+  - cmake ../
+  - make
+  - sudo make install
+  - sudo ldconfig
   #- sudo make training
   #- sudo make training-install
-  ##- cd ..
+  - cd ..
   
   ###- ./autogen.sh
   #- export LIBLEPT_HEADERSDIR=/local/include
@@ -166,7 +166,7 @@ script:
   ###- sudo make install
   ###- make training
   ###- sudo make training-install
-  #- cd ..
+  - cd ..
   ##- cd ..
  
  # - export TESSERACT_VERSION=4.1.0-1
