@@ -193,7 +193,7 @@ script:
    #- cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
   - mkdir build && cd build
   - export Tesseract_DIR=/home/travis/build/s-grig/PRO/tesseract
-  - cmake .. -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake
+  - cmake .. -DCMAKE_PREFIX_PATH=/usr/local/lib
   - cmake --build . --config Release
   
   - echo "Main application testing is done"
