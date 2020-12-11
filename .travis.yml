@@ -180,6 +180,7 @@ script:
   #- ls /usr/local/share/leptonica/lept*   
   - ls /usr/local/share/tesseract
   - ls /usr/local/lib
+  - ls /usr/local/include
   #- -I/usr/local/include/tesseract -ltesseract
   #- pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
