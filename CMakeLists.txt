@@ -14,7 +14,7 @@ find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 find_package(Qt5Gui CONFIG REQUIRED)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
-#find_package(Leptonica CONFIG REQUIRED)
+find_package(Leptonica CONFIG REQUIRED)
 find_package(Tesseract CONFIG REQUIRED)
 
 #find_library(Tesseract libtesseract
