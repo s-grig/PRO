@@ -175,11 +175,12 @@ script:
   - sudo find  / -name "tesseract*" -print 2>/dev/null
   #- ls /usr/local/share/leptonica/lept*
   - ls /usr/local/share/tesseract
+  - ls /usr/local/lib
   #- -I/usr/local/include/tesseract -ltesseract
-  - pkg-config --cflags --libs tesseract
+  #- pkg-config --cflags --libs tesseract
    #Вы можете проверить все переменные окружения, используя команду printenv:
    # - printenv
-  - pkg-config --cflags --libs tesseract
+  #- pkg-config --cflags --libs tesseract
    #- cmake .. "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/cmake/templates/"
    # "-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/"
    # cmake -Draspicam_DIR=<dir>
