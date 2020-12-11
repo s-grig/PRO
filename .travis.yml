@@ -196,6 +196,6 @@ script:
   - mkdir build && cd build
   #- export TESSERACT_DIR=/home/travis/build/s-grig/PRO/tesseract
   #- export TESSDATA_PREFIX=/home/travis/build/s-grig/PRO/tesseract/tessdata
-  - cmake -DCMAKE_PREFIX_PATH=/usr/local/lib ../ 
+  - cmake -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../ 
   - cmake --build . --config Release
   - echo "Main application testing is done"
