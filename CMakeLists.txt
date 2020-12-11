@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INCLUDE_CURRENT_DIR YES)
 set(CMAKE_AUTOMOC ON)
 
-#find_package(Leptonica CONFIG REQUIRED)
+find_package(Leptonica CONFIG REQUIRED)
 
 find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 
@@ -41,8 +41,8 @@ ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
 target_include_directories(main
 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-#include_directories(${Tesseract_INCLUDE_DIRS})
-#include_directories(${Leptonica_INCLUDE_DIRS})
+include_directories(${Tesseract_INCLUDE_DIRS})
+include_directories(${Leptonica_INCLUDE_DIRS})
 include_directories(${Qt5Gui_INCLUDE_DIRS})
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
@@ -50,7 +50,7 @@ include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
 
 #set_target_properties(main PROPERTIES AUTOMOC TRUE)
 
-#target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
+target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
