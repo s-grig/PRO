@@ -157,7 +157,7 @@ script:
   ###- sudo make install
   ###- make training
   ###- sudo make training-install
-  - cd ..
+  #- cd ..
   ##- cd ..
  
  # - export TESSERACT_VERSION=4.1.0-1
@@ -199,7 +199,7 @@ script:
    #- cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
   - mkdir build && cd build
   #- export TESSERACT_DIR=/home/travis/build/s-grig/PRO/tesseract
-  #- TESSERACT_DIR=/home/travis/build/s-grig/PRO/tesseract
+  - TESSERACT_DIR=/home/travis/build/s-grig/PRO/tesseract
   #- export TESSDATA_PREFIX=/home/travis/build/s-grig/PRO/tesseract/tessdata
   # -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../ 
   #-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/build/cmake ../ 
