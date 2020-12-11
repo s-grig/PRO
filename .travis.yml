@@ -30,7 +30,7 @@ env:
   - TARGET_CPU=x86 BUILD_CONFIGURATION=Release      
   
 before_install:
-  - 
+  - sudo apt-get update -qq
   
 
 script:
