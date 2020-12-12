@@ -52,15 +52,17 @@ target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
-#target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
+target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
 
 target_link_libraries(main PRIVATE Qt::Core Qt5::Core Qt::WinMain Qt5::WinMain)
+target_link_libraries(main PRIVATE Qt::Widgets Qt5::Widgets Qt::WidgetsPrivate Qt5::WidgetsPrivate)
+target_link_libraries(main PRIVATE Qt::Gui Qt5::Gui Qt::GuiPrivate Qt5::GuiPrivate)
 
 ####################### Linux #########################
 target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
-target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lsfml-graphics -lsfml-window -lsfml-system)
+#target_link_libraries(main -llept -ltesseract -lsfml-graphics -lsfml-window -lsfml-system)
 ################### WIN ####################################################
 
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
