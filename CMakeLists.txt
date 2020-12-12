@@ -39,6 +39,7 @@ include_directories(${Qt5Gui_INCLUDE_DIRS})
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(${Qt5Core_INCLUDE_DIRS})
 
+
 include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
 
 
@@ -52,12 +53,13 @@ target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 
-#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
-
-#target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 
 
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core)
 target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
 
 
+################### WIN ####################################################
+
+#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
+#target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
