@@ -1,5 +1,5 @@
 ﻿#include <drawer.hpp>
-
+#include <math.h>
 void drawer::set_limits_lin() {
     auto temp = std::max_element(coordinates.begin(), coordinates.end(),
         [](const auto& a, const auto& b) {
