@@ -40,7 +40,7 @@ include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(${Qt5Core_INCLUDE_DIRS})
 
 
-include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
+include_directories(sfml-system sfml-window sfml-graphics)
 
 
 #set_target_properties(main PROPERTIES AUTOMOC TRUE)
@@ -49,7 +49,7 @@ target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
-#target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics sfml-audio)
+#target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
 target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 
