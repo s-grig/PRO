@@ -29,7 +29,7 @@ find_library(Tesseract libtesseract
      /usr/local/include/tesseract
 #    $HOME/build/s-grig/PRO/.tesseract
 #    $HOME/build/s-grig/PRO/.tesseract/lib
-#    /usr/share/tesseract)
+     /usr/share/tesseract)
 
 
 add_executable(main
