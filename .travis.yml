@@ -73,7 +73,8 @@ script:
   - sudo apt-get install libicu-dev
   - sudo apt-get install libpango1.0-dev
   - sudo apt-get install libcairo2-dev
-
+  - sudo apt install libtesseract-dev libleptonica-dev liblept5
+  - sudo apt install tesseract-ocr -y
 
 
   #- sudo apt-get install tesseract-ocr-dev
@@ -107,45 +108,45 @@ script:
   - cd ..
   - ls
   ################################### leptonica #################################################
-  - wget https://github.com/DanBloomberg/leptonica/releases/download/1.80.0/leptonica-1.80.0.tar.gz
-  - tar xzf leptonica-1.80.0.tar.gz
+ # - wget https://github.com/DanBloomberg/leptonica/releases/download/1.80.0/leptonica-1.80.0.tar.gz
+ # - tar xzf leptonica-1.80.0.tar.gz
     # tar xzvf
-  - cd leptonica-1.80.0
-  - autoreconf --install --force
+  #- cd leptonica-1.80.0
+  #- autoreconf --install --force
   #- ./autobuild
-  - ./configure
-  - ./make-for-local
-  - ./make-for-auto
-  - sudo make
-  - sudo make install
+  #- ./configure
+  #- ./make-for-local
+  #- ./make-for-auto
+ # - sudo make
+  #- sudo make install
   ##################################
   #- LD_LIBRARY_PATH=LD_LIBRARY_PATH:usr/local/lib
-  - sudo ldconfig
+ # - sudo ldconfig
   #- sudo make check
-  - cd ..
+ # - cd ..
   - ls
   - echo $LD_LIBRARY_PATH
  ################################### tesseract #################################################
   #- sudo apt-get install tesseract-ocr
   #- sudo apt install libtesseract-dev
-  - git clone https://github.com/tesseract-ocr/tesseract.git
+ # - git clone https://github.com/tesseract-ocr/tesseract.git
   
   ##- cd tesseract/
   ##- ./autogen.sh
   ##- ./configure --with-extra-libraries=/usr/local/lib
-  - cd tesseract
-  - ./autogen.sh
+ # - cd tesseract
+ # - ./autogen.sh
   #- LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make
-  - export LIBLEPT_HEADERSDIR=/usr/local/include 
+ # - export LIBLEPT_HEADERSDIR=/usr/local/include 
   #- ./configure --with-extra-libraries=/usr/local/lib
-  - mkdir build
-  - cd build
-  - cmake ../
-  - sudo make && sudo make install
-  - sudo ldconfig
+ # - mkdir build
+ # - cd build
+ # - cmake ../
+ # - sudo make && sudo make install
+ # - sudo ldconfig
   #- sudo make training
   #- sudo make training-install
-  - cd ..
+ # - cd ..
   
   ###- ./autogen.sh
   #- export LIBLEPT_HEADERSDIR=/local/include
@@ -157,7 +158,7 @@ script:
   ###- sudo make install
   ###- make training
   ###- sudo make training-install
-  - cd ..
+  #- cd ..
   ##- cd ..
  
  # - export TESSERACT_VERSION=4.1.0-1
