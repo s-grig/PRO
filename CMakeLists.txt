@@ -14,6 +14,9 @@ find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 
 #find_package(Qt5Gui CONFIG REQUIRED)
 
+#find_package(Qt5 HINTS "$ENV{QTDIR}" COMPONENTS Core Quick REQUIRED)
+
+
 find_package(Qt5Widgets CONFIG REQUIRED)
 #find_package(Leptonica CONFIG REQUIRED)
 #find_package(Tesseract CONFIG REQUIRED)
@@ -48,11 +51,13 @@ target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 
-#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES} -fPIC)
+#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
-#target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES} -fPIC)
+#target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES}-fPIC)
+
+
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui lSFML)
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -llibsfml-window -llibsfml-system -llibsfml-graphics -llibsfml-audio)
-target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui)
+target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -llibQt5Core)
 
 
