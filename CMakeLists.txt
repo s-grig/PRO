@@ -52,9 +52,9 @@ target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
-target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
+#target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
 
-#target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
+target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 
 
