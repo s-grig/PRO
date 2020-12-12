@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 3.9)
 
 project(PRO)
 
-set(CMAKE_CXX_STANDARD 17)            
+set(CMAKE_CXX_FLAGS "-Wall -fPIC -std=c++17")
+#set(CMAKE_CXX_STANDARD 17)            
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INCLUDE_CURRENT_DIR YES)
 set(CMAKE_AUTOMOC ON)
-
+set(CMAKE_CXX_FLAGS "-Wall -fPIC -std=c++17")
 
 
 find_package(SFML REQUIRED COMPONENTS system window graphics audio)
