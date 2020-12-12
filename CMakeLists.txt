@@ -14,22 +14,17 @@ find_package(SFML REQUIRED COMPONENTS system window graphics)
 
 find_package(Qt5Gui CONFIG REQUIRED)
 
-
 find_package(Qt5Widgets CONFIG REQUIRED)
 
-#find_package(Leptonica CONFIG REQUIRED)
 
-################ Linux #############
+
+################ + Linux #############
 
 #find_package(Tesseract CONFIG REQUIRED)
 
 find_package(Qt5Core CONFIG REQUIRED)
 
-
-
-###################################
-
-
+######################################
 
 add_executable(main
 ${CMAKE_CURRENT_SOURCE_DIR}/source/main.cpp
@@ -40,17 +35,16 @@ ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
 target_include_directories(main
 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
+################ Linux  #####################
 target_compile_options(main PRIVATE -fPIC)
 
+
 include_directories(${Tesseract_INCLUDE_DIRS})
-#include_directories(${Leptonica_INCLUDE_DIRS})
 include_directories(${Qt5Gui_INCLUDE_DIRS})
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(${Qt5Core_INCLUDE_DIRS})
-
-
 include_directories(sfml-system sfml-window sfml-graphics)
-
+###############################################
 
 #set_target_properties(main PROPERTIES AUTOMOC TRUE)
 
@@ -58,8 +52,9 @@ target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
-#target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
-target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
+target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
+
+#target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 
 
