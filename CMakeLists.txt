@@ -49,7 +49,8 @@ target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES} -fPIC)
 
 #target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES} -fPIC)
-target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui lSFML)
+#target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui lSFML)
+target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -llibsfml-window -llibsfml-system -llibsfml-graphics -llibsfml-audio)
 
 
 
