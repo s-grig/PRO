@@ -11,7 +11,7 @@ set(CMAKE_AUTOMOC ON)
 
 find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 
-find_package(Qt5Gui CONFIG REQUIRED)
+#find_package(Qt5Gui CONFIG REQUIRED)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 #find_package(Leptonica CONFIG REQUIRED)
@@ -60,7 +60,7 @@ target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
 #target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
-target_link_libraries(main -llept -ltesseract -lQt5Gui -lQt5Widgets -lsfml)
+target_link_libraries(main -llept -ltesseract -llibqt5 -lsfml)
 
 
 
