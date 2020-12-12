@@ -17,8 +17,8 @@ find_package(Qt5Widgets CONFIG REQUIRED)
 #find_package(Leptonica CONFIG REQUIRED)
 find_package(Tesseract REQUIRED COMPONENTS libtesseract)
 
-#find_library(Tesseract libtesseract
-#    PATHS
+find_library(Tesseract libtesseract
+    PATHS
 #   /usr/lib
 #    /usr/local/lib
 #    /usr/bin/tesseract
@@ -26,7 +26,7 @@ find_package(Tesseract REQUIRED COMPONENTS libtesseract)
 #    /usr/lib/x86_64-linux-gnu/
 #    /usr/bin/install
 #    /usr/local/Cellar/tesseract/lib
-#    /usr/local/include/leptonica
+     /usr/local/include/tesseract
 #    $HOME/build/s-grig/PRO/.tesseract
 #    $HOME/build/s-grig/PRO/.tesseract/lib
 #    /usr/share/tesseract)
