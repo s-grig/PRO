@@ -14,7 +14,7 @@ find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 
 #find_package(Qt5Gui CONFIG REQUIRED)
 
-#find_package(Qt5 HINTS "$ENV{QTDIR}" COMPONENTS Core Quick REQUIRED)
+##find_package(Qt5 HINTS "$ENV{QTDIR}" COMPONENTS Core Quick REQUIRED)
 
 
 find_package(Qt5Widgets CONFIG REQUIRED)
@@ -53,11 +53,12 @@ target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
-#target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES}-fPIC)
+#target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 
 
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui lSFML)
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -llibsfml-window -llibsfml-system -llibsfml-graphics -llibsfml-audio)
-target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core)
+#target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core)
+target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
 
 
