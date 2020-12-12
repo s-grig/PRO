@@ -15,7 +15,7 @@ find_package(Qt5Gui CONFIG REQUIRED)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 #find_package(Leptonica CONFIG REQUIRED)
-find_package(Tesseract REQUIRED COMPONENTS libtesseract)
+find_package(Tesseract CONFIG REQUIRED)
 
 find_library(Tesseract libtesseract
     PATHS
