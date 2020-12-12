@@ -58,6 +58,6 @@ target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui lSFML)
 #target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -llibsfml-window -llibsfml-system -llibsfml-graphics -llibsfml-audio)
-target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -llibQt5Core)
+target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core)
 
 
