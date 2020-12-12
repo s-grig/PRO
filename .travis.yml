@@ -136,8 +136,9 @@ script:
   - cd tesseract
   - ./autogen.sh
   #- LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make
-  - LIBLEPT_HEADERSDIR=usr/local/include ./configure --prefix=usr/local/ --with-extra-libraries=usr/local/lib
-  #- export LIBLEPT_HEADERSDIR=/usr/local/include 
+  #- LIBLEPT_HEADERSDIR=usr/local/include ./configure --prefix=usr/local/ --with-extra-libraries=usr/local/lib
+  - export LIBLEPT_HEADERSDIR=/usr/local/include 
+  - ./configure --prefix=usr/local/ --with-extra-libraries=usr/local/lib
   #- ./configure --with-extra-libraries=/usr/local/lib
   #- mkdir build
   #- cd build
