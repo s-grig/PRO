@@ -54,17 +54,16 @@ target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
 #target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
 
+target_link_libraries(main PRIVATE Qt::Core Qt5::Core Qt::WinMain Qt5::WinMain)
+
+####################### Linux #########################
 target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
-
-
-
-#target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core)
 target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
-
 
 ################### WIN ####################################################
 
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
+
 #target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
-#add_executable(MyExecutable ...)
+
