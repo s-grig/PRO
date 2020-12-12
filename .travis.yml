@@ -202,11 +202,11 @@ script:
    #- cmake -DTesseract_DIR=/home/travis/build/s-grig/PRO/tesseract -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../
   - mkdir build && cd build
   #- export TESSERACT_DIR=/home/travis/build/s-grig/PRO/tesseract
-  - TESSERACT_DIR=/home/travis/build/s-grig/PRO/tesseract
+  #- TESSERACT_DIR=/home/travis/build/s-grig/PRO/tesseract
   #- export TESSDATA_PREFIX=/home/travis/build/s-grig/PRO/tesseract/tessdata
   # -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../ 
   #-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/build/cmake ../ 
   #-DCMAKE_PREFIX_PATH=/usr/local/include ../
-  - cmake .. 
+  - cmake -DCMAKE_PREFIX_PATH=/usr/local ../ 
   - cmake --build . --config Release
   - echo "Main application testing is done"
