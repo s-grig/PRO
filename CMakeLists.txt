@@ -12,14 +12,23 @@ set(CMAKE_AUTOMOC ON)
 
 find_package(SFML REQUIRED COMPONENTS system window graphics)
 
-#find_package(Qt5Gui CONFIG REQUIRED)
+find_package(Qt5Gui CONFIG REQUIRED)
 
+
+find_package(Qt5Widgets CONFIG REQUIRED)
+
+#find_package(Leptonica CONFIG REQUIRED)
+
+################ Linux #############
+
+#find_package(Tesseract CONFIG REQUIRED)
 
 find_package(Qt5Core CONFIG REQUIRED)
 
-find_package(Qt5Widgets CONFIG REQUIRED)
-#find_package(Leptonica CONFIG REQUIRED)
-#find_package(Tesseract CONFIG REQUIRED)
+
+
+###################################
+
 
 
 add_executable(main
