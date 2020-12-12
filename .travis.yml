@@ -75,7 +75,7 @@ script:
   - sudo apt-get install libcairo2-dev
   - sudo apt install libtesseract-dev libleptonica-dev liblept5
   - sudo apt install tesseract-ocr -y
-
+  - tesseract --version
 
   #- sudo apt-get install tesseract-ocr-dev
  # - sudo apt install libtesseract-dev
