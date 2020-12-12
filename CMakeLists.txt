@@ -46,26 +46,22 @@ include_directories(${Qt5Core_INCLUDE_DIRS})
 include_directories(sfml-system sfml-window sfml-graphics)
 ###############################################
 
-#set_target_properties(main PROPERTIES AUTOMOC TRUE)
-
 target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
 #target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
 
-#target_link_libraries(main PRIVATE ${Qt5Core_LIBRARIES})
-#target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
-#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
 ####################### Linux #########################
 target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
 
 target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
-#target_link_libraries(main -llept -ltesseract -lsfml-graphics -lsfml-window -lsfml-system)
+
 ################### WIN ####################################################
 
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
 #target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 
+##?#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
