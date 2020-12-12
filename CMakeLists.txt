@@ -14,8 +14,8 @@ find_package(SFML REQUIRED COMPONENTS system window graphics audio)
 find_package(Qt5Gui CONFIG REQUIRED)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
-#find_package(Leptonica CONFIG REQUIRED)
-#find_package(Tesseract CONFIG REQUIRED)
+find_package(Leptonica CONFIG REQUIRED)
+find_package(Tesseract CONFIG REQUIRED)
 
 #find_library(Tesseract libtesseract
 #    PATHS
@@ -43,7 +43,7 @@ PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 
 include_directories(${Tesseract_INCLUDE_DIRS})
-#include_directories(${Leptonica_INCLUDE_DIRS})
+include_directories(${Leptonica_INCLUDE_DIRS})
 include_directories(${Qt5Gui_INCLUDE_DIRS})
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
@@ -51,7 +51,7 @@ include_directories(sfml-system sfml-window sfml-graphics sfml-audio)
 
 #set_target_properties(main PROPERTIES AUTOMOC TRUE)
 
-#target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
+target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
 
@@ -61,6 +61,6 @@ target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 
 target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 
-target_link_libraries(main PRIVATE leptonica PRIVATE libtesseract PRIVATE)
+#target_link_libraries(main PRIVATE leptonica PRIVATE libtesseract PRIVATE)
 
 
