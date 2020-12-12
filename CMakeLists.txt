@@ -63,3 +63,5 @@ target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -l
 
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 #target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
+#add_executable(MyExecutable ...)
+target_compile_options(main PRIVATE -fPIC)
