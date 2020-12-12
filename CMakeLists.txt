@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 project(PRO)
 
-#set(CMAKE_CXX_FLAGS "-Wall -fPIC -std=c++17")
+#set(CMAKE_CXX_FLAGS "-Wall -fPIC -std=c++17")  for Qt5
 set(CMAKE_CXX_STANDARD 17)            
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INCLUDE_CURRENT_DIR YES)
@@ -10,13 +10,12 @@ set(CMAKE_AUTOMOC ON)
 
 
 
-find_package(SFML REQUIRED COMPONENTS system window graphics audio)
+find_package(SFML REQUIRED COMPONENTS system window graphics)
 
 #find_package(Qt5Gui CONFIG REQUIRED)
 
-##find_package(Qt5 HINTS "$ENV{QTDIR}" COMPONENTS Core Quick REQUIRED)
-find_package(Qt5Core CONFIG REQUIRED)
 
+find_package(Qt5Core CONFIG REQUIRED)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 #find_package(Leptonica CONFIG REQUIRED)
@@ -32,6 +31,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
 target_include_directories(main
 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
+target_compile_options(main PRIVATE -fPIC)
 
 include_directories(${Tesseract_INCLUDE_DIRS})
 #include_directories(${Leptonica_INCLUDE_DIRS})
@@ -64,4 +64,3 @@ target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -l
 #target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
 #target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
 #add_executable(MyExecutable ...)
-target_compile_options(main PRIVATE -fPIC)
