@@ -136,8 +136,9 @@ script:
   - cd tesseract
   - ./autogen.sh
   #- LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make
-  - export LIBLEPT_HEADERSDIR=/usr/local/include 
-  - ./configure --with-extra-libraries=/usr/local/lib
+  - LIBLEPT_HEADERSDIR=usr/local/include ./configure --prefix=usr/local/ --with-extra-libraries=usr/local/lib
+  #- export LIBLEPT_HEADERSDIR=/usr/local/include 
+  #- ./configure --with-extra-libraries=/usr/local/lib
   #- mkdir build
   #- cd build
   #- cmake ../
@@ -207,6 +208,6 @@ script:
   # -DCMAKE_PREFIX_PATH=/usr/local/lib/cmake ../ 
   #-DCMAKE_PREFIX_PATH=/home/travis/build/s-grig/PRO/tesseract/build/cmake ../ 
   #-DCMAKE_PREFIX_PATH=/usr/local/include ../
-  - cmake -DCMAKE_PREFIX_PATH=/usr/local ../ 
+  - cmake ..
   - cmake --build . --config Release
   - echo "Main application testing is done"
