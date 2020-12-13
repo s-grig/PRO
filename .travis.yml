@@ -89,7 +89,7 @@ script:
  
 
  ######################### Gtest ##############################################
-  - sudo apt isntall libgtest-dev
+  - sudo apt install libgtest-dev
   - cd /usr/src/gtest/
   - sudo cmake -DBUILD_SHARED_LIBS=ON
   - sudo make
