@@ -92,3 +92,4 @@ script:
   - cmake ..
   - cmake --build . --config Release
   - echo "Main application testing is done"
+
