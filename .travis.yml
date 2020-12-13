@@ -18,6 +18,7 @@ addons:
       - gcc-7
       - g++-7
       - clang-5.0
+      - Gtest
      
 env:
    
