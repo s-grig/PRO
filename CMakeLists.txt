@@ -25,13 +25,6 @@ if(UNIX AND NOT APPLE)
    find_package(Qt5Core CONFIG REQUIRED)
 endif(UNIX AND NOT APPLE)
 
-################ + Linux #############
-
-#win#find_package(Tesseract CONFIG REQUIRED)
-
-#find_package(Qt5Core CONFIG REQUIRED)
-
-######################################
 
 add_executable(main
 ${CMAKE_CURRENT_SOURCE_DIR}/source/main.cpp
@@ -42,7 +35,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
 target_include_directories(main
 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-################ Linux  #####################
+################### Linux  ###############################
 if(UNIX AND NOT APPLE)
  target_compile_options(main PRIVATE -fPIC)
  include_directories(${Tesseract_INCLUDE_DIRS})
@@ -56,15 +49,8 @@ if(UNIX AND NOT APPLE)
  target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
  target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
  endif(UNIX AND NOT APPLE)
-###############################################
 
-
-
-
-####################### Linux #########################
-
-
-################### WIN ####################################################
+################### WIN ##################################
 
 if(WIN32) 
  target_link_libraries(main PRIVATE libtesseract)

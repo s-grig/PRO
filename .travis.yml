@@ -1,6 +1,6 @@
 os:
   - linux
-  #- osx
+  
 
 language: cpp
 
@@ -15,12 +15,7 @@ addons:
     packages:
       - gcc-7
       - g++-7
-      - clang
-      #- qt514-meta-minimal
-      #- qt514svg
-      #- qt514imageformats
-      #- qt514tools
-      #- tesseract-ocr
+      
      
 env:
    
