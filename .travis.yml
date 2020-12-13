@@ -3,7 +3,9 @@ os:
   
 
 language: cpp
-
+compiler:
+ - gcc
+ - clang
 dist: bionic
 
 addons:
@@ -15,14 +17,14 @@ addons:
     packages:
       - gcc-7
       - g++-7
-      
+      - clang-7.0
      
 env:
    
   - TARGET_CPU=amd64 BUILD_CONFIGURATION=Debug
   - TARGET_CPU=amd64 BUILD_CONFIGURATION=Release
-  - TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
-  - TARGET_CPU=x86 BUILD_CONFIGURATION=Release      
+  #- TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
+  #- TARGET_CPU=x86 BUILD_CONFIGURATION=Release      
   
 before_install:
   - sudo apt-get update -qq
@@ -47,7 +49,7 @@ script:
   - sudo apt-get install libtiff5-dev
   - sudo apt-get install zlib1g-dev
   - sudo apt-get install libtool-bin
-    ########################### SFML ###################################
+    ########################### SFML ################################
   - sudo apt-get install libx11-dev libgl1-mesa-dev 
   - sudo apt-get install libudev-dev libfreetype6-dev 
   - sudo apt-get install libopenal-dev libflac-dev libvorbis-dev
