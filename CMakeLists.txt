@@ -53,7 +53,7 @@ if(UNIX AND NOT APPLE)
 ################### WIN ##################################
 
 if(WIN32) 
- target_link_libraries(main PRIVATE libtesseract)
+ target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
  target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
  target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
  ##?#target_link_libraries(main PRIVATE ${Qt5Gui_LIBRARIES})
